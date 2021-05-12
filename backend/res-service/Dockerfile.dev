@@ -1,0 +1,5 @@
+FROM openjdk:12
+
+COPY ./target/venuebooking-1.0-SNAPSHOT.jar /usr/app/
+
+ENTRYPOINT ["java","-jar","/usr/app/venuebooking-1.0-SNAPSHOT.jar"]

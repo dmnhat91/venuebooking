@@ -1,0 +1,26 @@
+.brand-name {
+  text-transform: uppercase;
+
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.mylink {
+  text-decoration: none !important;
+  margin-left: 10px;
+}
+
+.mylink > *{
+  color: #b8b8b8;
+}
+
+
+.mylink:hover > * {
+  color: white;
+}
+
+h1 {
+  color: #4d3263;
+}

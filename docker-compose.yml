@@ -1,0 +1,108 @@
+version: '3'
+
+services:
+  res-db:
+    image: "postgres"
+    container_name: res-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: venuebooking
+      POSTGRES_USER: teamX
+      POSTGRES_PASSWORD: 1
+  
+  user-db:
+    image: "postgres"
+    container_name: user-db
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: venuebooking
+      POSTGRES_USER: teamX
+      POSTGRES_PASSWORD: 1
+
+  booking-db:
+    image: "postgres"
+    container_name: booking-db
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: venuebooking
+      POSTGRES_USER: teamX
+      POSTGRES_PASSWORD: 1
+
+  res-service:
+    build: 
+      context: ./backend/res-service
+      dockerfile: Dockerfile.dev
+    container_name: res_service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://res-db:5432/venuebooking
+      SPRING_DATASOURCE_USERNAME: teamX
+      SPRING_DATASOURCE_PASSWORD: 1
+    links: 
+      - "res-db"
+
+  user-service:
+    build: 
+      context: ./backend/user-service
+      dockerfile: Dockerfile.dev
+    container_name: user_service
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-db:5432/venuebooking
+      SPRING_DATASOURCE_USERNAME: teamX
+      SPRING_DATASOURCE_PASSWORD: 1
+    links: 
+      - "user-db"
+
+  booking-service:
+    build: 
+      context: ./backend/booking-service
+      dockerfile: Dockerfile.dev
+    container_name: booking_service
+    ports:
+      - "8082:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://res-db:5432/venuebooking
+      SPRING_DATASOURCE_USERNAME: teamX
+      SPRING_DATASOURCE_PASSWORD: 1
+    links: 
+      - "booking-db"
+  
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes: 
+      - /usr/app/node_modules
+      - ./frontend:/usr/app
+    links: 
+      - "res-service"
+      - "user-service"
+      - "booking-service"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  
+  redis:
+    image: "redis"
+    container_name: redis
+    ports:
+      - "6379:6379"
+  
+  redis-service:
+    build: 
+      context: ./backend/redis
+      dockerfile: Dockerfile
+    container_name: redis-service
+    ports:
+      - "10091:10091"
+    links:
+      - "redis"
+      

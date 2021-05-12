@@ -1,0 +1,5 @@
+FROM openjdk:12
+
+COPY ./target/BookingService-1.0-SNAPSHOT.jar /usr/app/
+
+ENTRYPOINT ["java","-jar","/usr/app/BookingService-1.0-SNAPSHOT.jar"]

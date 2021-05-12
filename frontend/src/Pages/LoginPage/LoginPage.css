@@ -1,0 +1,18 @@
+.Login__description {
+    display: flex;
+    text-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    padding: 8px 0px;
+}
+.Login__line1 {
+    min-width: 1px;
+    width: 100%;
+    flex: 1 1 0%;
+    margin: 0px 8px;
+    border-bottom: 1px solid rgb(221, 223, 226);
+}

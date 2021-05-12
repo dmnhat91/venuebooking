@@ -1,0 +1,19 @@
+.div image  {
+    height: 200px;
+    width: 400px;
+}
+
+.HPsection__container {
+    /* background-color: #f3f3f3; */
+    padding: 120px 20px;
+}
+
+.HPsection__header {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.HPsection__subheader {
+    text-align: center;
+}

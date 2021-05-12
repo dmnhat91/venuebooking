@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- project properties -->
+    <groupId>com.springboot.redis</groupId>
+    <artifactId>SpringbootRedisUsingJedis</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- application name -->
+    <name>Springboot Redis tutorial Using Jedis</name>
+    <description>Springboot and Redis tutorial</description>
+
+    <!-- spring boot starter parent dependency -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.1.RELEASE</version>
+    </parent>
+
+    <properties>
+        <!-- setting the java version as jdk1.8 -->
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- spring data redis dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- final jar name -->
+        <finalName>redis</finalName>
+        <!-- to make the application as fat jar so that spring boot libraries are
+            included -->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

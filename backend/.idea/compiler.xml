@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="venuebooking" />
+        <module name="venuebooking (1) (com.example)" />
+        <module name="redis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Redis" target="1.5" />
+      <module name="redis" target="11" />
+      <module name="venuebooking" target="11" />
+      <module name="venuebooking (1) (com.example)" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="redis" options="-parameters" />
+      <module name="venuebooking" options="-parameters" />
+      <module name="venuebooking (1) (com.example)" options="-parameters" />
+    </option>
+  </component>
+</project>

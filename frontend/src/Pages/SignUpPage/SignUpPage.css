@@ -1,0 +1,55 @@
+.SignUpLogin__home {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.SignUpLogin {
+  display: flex;
+  width: 100vw;
+}
+
+.SignUpLogin__form {
+  height: 100vh;
+  padding: 30px;
+  background-color: white;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.SignUpLogin__switch {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUpLogin__description {
+text-align: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(107, 85, 126, 0.6),
+        rgba(74, 50, 82, 0.6)
+      ),
+      url(../../img/homepage-bg.jpeg);
+  
+  
+    background-size: cover;
+  
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
+  @media screen and (max-width: 700px) {
+    .SignUpLogin__description {
+      visibility: hidden;
+      display: none;
+    }
+  }
+
+  
